@@ -21,7 +21,7 @@ function App(){
   console.log("from start"+islogin1);
   return(<>
   
-  <BrowserRouter>
+  
   {<Navbar/>}
   <Routes>
     <Route path='/' element={<HomePage/>}/>
@@ -31,7 +31,7 @@ function App(){
     <Route path='/submitqueries' element={<Form/>}/>
     <Route path='termsandconditions' element={<TermsAndConditions/>}/>
   </Routes>
-  </BrowserRouter></>);
+  </>);
 }
 /*function App() {
   

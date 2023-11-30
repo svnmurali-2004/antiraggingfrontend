@@ -1,7 +1,10 @@
 import { useState } from "react";
 import axios from 'axios';
+import {useNavigate} from "react-router-dom";
+
 function LoginForm(){
   let islogin=sessionStorage.getItem('islogin');
+  const navigate = useNavigate();
  
   const logout = () => {
     sessionStorage.setItem('islogin', 'false');
@@ -20,7 +23,7 @@ function LoginForm(){
         if (response.data===true) {
           sessionStorage.setItem('islogin',true)
           axios.get("http://localhost:5000/getlogin").then(response=>{sessionStorage.setItem('logindetails',response.data)})
-          alert("details were found")
+          //alert("details were found")
         }else{
           alert("login details not found")
         }   
@@ -52,8 +55,10 @@ function LoginForm(){
             </div>
             <br/>
             <div class="text-center ">
-                <button class="bg-red-400 hover:bg-red-500 text-white font-semibold py-2 px-4 rounded-md cursor-pointer" type="submit" id="submit" name="submit">Login</button>
+                <button class=" bg-red-400 hover:bg-red-500 text-white font-semibold py-2 px-4 rounded-md cursor-pointer" type="submit" id="submit" name="submit">Login</button>
             </div>
+            <br/>
+            <p class="text-xs">not an existing user <a class="underline text-blue-600" onClick={()=>navigate("/signup")}>Sign up</a></p>
  
       </form>
     </div>

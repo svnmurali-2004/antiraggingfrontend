@@ -1,6 +1,9 @@
 import React, { useState } from 'react';
-import axios from 'axios'
+import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
+
 const SignUpPage = () => {
+  const navigate=useNavigate();
   const [formData, setFormData] = useState({
     name: '',
     rollnumber: '',
@@ -96,6 +99,8 @@ const SignUpPage = () => {
           >
             Sign Up
           </button>
+          <br/>
+          <p class="text-xs">aldready an existing user <a class="underline text-blue-600" onClick={()=>navigate("/login")}>Login</a></p>
         </form>
       </div>
     </div>
