@@ -19,7 +19,7 @@ const SignUpPage = () => {
     e.preventDefault();
     // You can handle form submission logic here
     if (formData.password===formData.cpassword){
-        const response=await axios.post('http://localhost:5000/signup1',formData);
+        const response=await axios.post('https://antiraggingbackend.onrender.com/signup1',formData);
         console.log(response.data);
         if (response.data===true){
             alert('your details were successfully added to our database please login to continue')
